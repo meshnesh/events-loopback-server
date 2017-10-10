@@ -1,7 +1,5 @@
 # My Events Server
 
-=========
-
 The project is a server that connects to mongoDB, it will be saving Event data directly to the db.
 
 ## Get the project
