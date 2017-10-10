@@ -38,7 +38,7 @@ export default class Eventdetail extends Component{
         <ul className="collection">
           <li className="collection-item">{this.state.details.city}</li>
         </ul>
-        <Link className="btn" to={`/events/edit/${this.state.details.id}`}>Edit</Link>
+        <Link className="btn" to={`/event/edit/${this.state.details.id}`}>Edit</Link>
 
         <button className="btn red right">Delete</button>
       </div>

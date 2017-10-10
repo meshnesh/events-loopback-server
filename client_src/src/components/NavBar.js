@@ -25,7 +25,7 @@ export default class NavBar extends Component {
                 </Link>
               </li>
               <li>
-                <Link to="/events/add">
+                <Link to="/event/add">
                   <i className="fa fa-plus fa-2x"></i> Add Event
                 </Link>
               </li>
