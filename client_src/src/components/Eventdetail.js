@@ -26,6 +26,14 @@ export default class Eventdetail extends Component{
     .catch(err => console.log(err));
   }
 
+  onDelete(){
+    let eventId = this.state.details.id;
+    axios.delete(`http://localhost:3000/api/events/${eventId}`)
+      .then(response => {
+        this.props.history.push('/');
+      }).catch(err => console.log(err));
+  }
+
   render(){
     return(
       <div>
@@ -40,7 +48,7 @@ export default class Eventdetail extends Component{
         </ul>
         <Link className="btn" to={`/event/edit/${this.state.details.id}`}>Edit</Link>
 
-        <button className="btn red right">Delete</button>
+        <button onClick={this.onDelete.bind(this)} className="btn red right">Delete</button>
       </div>
     )
   }
