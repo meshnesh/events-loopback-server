@@ -29,6 +29,11 @@ export default class NavBar extends Component {
                   <i className="fa fa-plus fa-2x"></i> Add Event
                 </Link>
               </li>
+              <li>
+                <Link to="/about">
+                  <i className="fa fa-question-circle fa-2x"></i> About
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>

@@ -11,7 +11,7 @@ const App = () => (
       <Main />
     </div>
     <div className="fixed-action-btn">
-      <Link to="/meetups/add" className="btn-floating btn-large red">
+      <Link to="/meetups/add" className="btn-floating btn-large red waves-effect waves-light">
         <i className="fa fa-plus fa-3x"></i>
       </Link>
     </div>
