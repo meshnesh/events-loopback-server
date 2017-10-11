@@ -6,3 +6,4 @@ module.exports = function(server) {
   router.get('/');
   server.use(router);
 };
+// , server.loopback.status()
