@@ -34,6 +34,16 @@ export default class NavBar extends Component {
                   <i className="fa fa-question-circle fa-2x"></i> About
                 </Link>
               </li>
+              <li>
+                <Link to="/signup">
+                  <i className="fa fa-question-circle fa-2x"></i> Signup
+                </Link>
+              </li>
+              <li>
+                <Link to="/login">
+                  <i className="fa fa-question-circle fa-2x"></i> Login
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>
