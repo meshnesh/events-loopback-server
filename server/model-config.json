@@ -38,5 +38,9 @@
   "event": {
     "dataSource": "db",
     "public": true
+  },
+  "event_app": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -8,7 +8,7 @@ export default class Addevent extends Component{
   addEvent(newEvent){
     axios.request({
       method:'post',
-      url:'http://localhost:3000/api/events',
+      url:'http://localhost:3000/api/event_apps',
       data: newEvent
     }).then(response => {
       this.props.history.push('/');
@@ -18,8 +18,9 @@ export default class Addevent extends Component{
 
   onSubmit(e){
     const newEvent = {
-      name: this.refs.name.value,
-      city: this.refs.city.value
+      title: this.refs.title.value,
+      location: this.refs.location.value,
+      description: this.refs.description.value
     }
     this.addEvent(newEvent);
     // console.log(this.refs.name.value);
@@ -36,12 +37,17 @@ export default class Addevent extends Component{
         <h1>Add Event</h1>
         <form onSubmit={this.onSubmit.bind(this)}>
           <div className="input-field">
-            <input type="text" name="name" ref="name" />
-            <label htmlFor="name">Name</label>
+            <input type="text" name="title" ref="title" />
+            <label htmlFor="name">Title</label>
           </div>
           <div className="input-field">
-            <input type="text" name="city" ref="city" />
-            <label htmlFor="city">City</label>
+            <input type="text" name="location" ref="location" />
+            <label htmlFor="location">Location</label>
+          </div>
+          <div className="input-field col s12">
+            <textarea className="materialize-textarea" type="text" name="description" ref="description" placeholder="Event Description">
+            </textarea>
+            <label htmlFor="description">Description</label>
           </div>
           <input type="submit" className="btn" value="save" />
         </form>

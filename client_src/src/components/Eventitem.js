@@ -13,7 +13,7 @@ export default class Eventitem extends Component{
     return(
       <li className="collection-item">
         <Link to={`/event/${this.state.item.id}`}>
-          {this.state.item.name}
+          {this.state.item.title}
         </Link>
       </li>
     )

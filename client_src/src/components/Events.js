@@ -16,7 +16,7 @@ export default class Events extends Component {
 
 
   getEvents(){
-    axios.get('http://localhost:3000/api/events')
+    axios.get('http://localhost:3000/api/event_apps')
       .then(response => {
         this.setState({events: response.data}, () => {
           console.log(this.state);

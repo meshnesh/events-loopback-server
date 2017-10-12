@@ -17,7 +17,7 @@ export default class Eventdetail extends Component{
 
   getEvent(){
     let eventId = this.props.match.params.id;
-    axios.get(`http://localhost:3000/api/events/${eventId}`)
+    axios.get(`http://localhost:3000/api/event_apps/${eventId}`)
       .then(response => {
         this.setState({details: response.data}, () => {
           console.log(this.state);
@@ -28,7 +28,7 @@ export default class Eventdetail extends Component{
 
   onDelete(){
     let eventId = this.state.details.id;
-    axios.delete(`http://localhost:3000/api/events/${eventId}`)
+    axios.delete(`http://localhost:3000/api/event_apps/${eventId}`)
       .then(response => {
         this.props.history.push('/');
       }).catch(err => console.log(err));
@@ -41,10 +41,11 @@ export default class Eventdetail extends Component{
         <Link className="btn grey rounded" to="/">Back</Link>
         <hr />
         <h1>
-          {this.state.details.name}
+          {this.state.details.title}
         </h1>
         <ul className="collection">
-          <li className="collection-item">{this.state.details.city}</li>
+          <li className="collection-item">{this.state.details.location}</li>
+          <li className="collection-item">{this.state.details.description}</li>
         </ul>
         <Link className="btn" to={`/event/edit/${this.state.details.id}`}>Edit</Link>
 

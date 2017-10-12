@@ -8,8 +8,9 @@ export default class Editevent extends Component{
     super(props);
     this.state = {
       id:'',
-      name:'',
-      city:''
+      title:'',
+      location:'',
+      description:''
     }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
@@ -20,12 +21,13 @@ export default class Editevent extends Component{
 
   getEventDetails(){
     let eventId = this.props.match.params.id;
-    axios.get(`http://localhost:3000/api/events/${eventId}`)
+    axios.get(`http://localhost:3000/api/event_apps/${eventId}`)
       .then(response => {
         this.setState({
           id: response.data.id,
-          name: response.data.name,
-          city: response.data.city,
+          title: response.data.title,
+          location: response.data.location,
+          description: response.data.description,
         }, () => console.log(this.state));
     })
     .catch(err => console.log(err));
@@ -34,7 +36,7 @@ export default class Editevent extends Component{
   editEvent(newEvent){
     axios.request({
       method:'put',
-      url:`http://localhost:3000/api/events/${this.state.id}`,
+      url:`http://localhost:3000/api/event_apps/${this.state.id}`,
       data: newEvent
     }).then(response => {
       this.props.history.push('/');
@@ -44,8 +46,9 @@ export default class Editevent extends Component{
 
   onSubmit(e){
     const newEvent = {
-      name: this.refs.name.value,
-      city: this.refs.city.value
+      title: this.refs.title.value,
+      location: this.refs.location.value,
+      description: this.refs.description.value
     }
     this.editEvent(newEvent);
     e.preventDefault();
@@ -54,10 +57,10 @@ export default class Editevent extends Component{
   handleInputChange(e){
     const target = e.target;
     const value = target.value;
-    const name = target.name;
+    const title = target.title;
 
     this.setState({
-      [name]:value
+      [title]:value
     })
   }
 
@@ -71,12 +74,17 @@ export default class Editevent extends Component{
         <h1>Edit Event</h1>
         <form onSubmit={this.onSubmit.bind(this)}>
           <div className="input-field">
-            <input type="text" name="name" ref="name" value={this.state.name} onChange={this.handleInputChange}/>
-            <label htmlFor="name">Name</label>
+            <input type="text" name="title" ref="title" value={this.state.title} onChange={this.handleInputChange}/>
+            <label htmlFor="title">Name</label>
           </div>
           <div className="input-field">
-            <input type="text" name="city" ref="city" value={this.state.city} onChange={this.handleInputChange}/>
-            <label htmlFor="city">City</label>
+            <input type="text" name="location" ref="location" value={this.state.location} onChange={this.handleInputChange}/>
+            <label htmlFor="location">Location</label>
+          </div>
+          <div className="input-field col s12">
+            <textarea className="materialize-textarea" type="text" name="description" ref="description" value={this.state.description} onChange={this.handleInputChange}>
+            </textarea>
+            <label htmlFor="description">Description</label>
           </div>
           <input type="submit" className="btn" value="save" />
         </form>
