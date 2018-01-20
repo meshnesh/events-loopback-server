@@ -11,11 +11,20 @@ export default class Eventitem extends Component{
 
   render(){
     return(
-      <li className="collection-item">
+      <div className="col s6">
         <Link to={`/event/${this.state.item.id}`}>
-          {this.state.item.title}
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">
+                {this.state.item.title}
+              </span>
+              <p>
+              {this.state.item.description}
+              </p>
+            </div>
+          </div>
         </Link>
-      </li>
+      </div>
     )
   }
 }

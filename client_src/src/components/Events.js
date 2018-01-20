@@ -36,9 +36,14 @@ export default class Events extends Component {
         <h1>
           Events
         </h1>
-        <ul className="collection">
+        {/* <ul className="collection">
           {eventItem}
-        </ul>
+        </ul> */}
+        <div className="row">
+          {eventItem}
+        </div>
+
+
       </div>
     )
   }

@@ -20,7 +20,8 @@ export default class Addevent extends Component{
     const newEvent = {
       title: this.refs.title.value,
       location: this.refs.location.value,
-      description: this.refs.description.value
+      description: this.refs.description.value,
+      image: this.refs.image.value
     }
     this.addEvent(newEvent);
     // console.log(this.refs.name.value);
@@ -43,6 +44,10 @@ export default class Addevent extends Component{
           <div className="input-field">
             <input type="text" name="location" ref="location" />
             <label htmlFor="location">Location</label>
+          </div>
+          <div className="input-field">
+            <input type="text" name="image" ref="image" />
+            <label htmlFor="image">Image URL</label>
           </div>
           <div className="input-field col s12">
             <textarea className="materialize-textarea" type="text" name="description" ref="description" placeholder="Event Description">
